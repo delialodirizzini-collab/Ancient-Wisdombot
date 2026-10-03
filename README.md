@@ -91,7 +91,7 @@ Aristotle in Rhetoric. Fourth, my agent maintains the full history of the
 conversation as it grows. Fifth, it integrates peer-reviewed, pre-prints papers 
 with various news sources for its output. 
 
-3.5 Tool Usage
+# 3. Five Tools 
 
 File Search (RAG). The vector store is made of 49 documents of which 38 are 
 ancient philosophical texts and 11 are contemporary AI ethics bridging papers 
@@ -125,10 +125,10 @@ a plain ChatGPT would not access or might hallucinate. The four function calls
 address the training horizon problem by fetching the latest news available from 
 different sources. 
 
-4. Outside Knowledge: Curated Data Sources 
+# 4. Outside Knowledge: Curated Data Sources 
 A) Ancient Philosophical Corpus (38 PDFs) 
 The corpus was assembled from public domain translations from Project 
-Gutenberg and MIT Internet Classics Archive. I converted certain documents into 
+Gutenberg and MIT Internet Classics Archive. I converted certain documents into
 retrievable text. After a first run with full books uploaded, I went back to split each 
 major work into chapter level or in themes based on my knowledge of their 
 content, indicating it in the file name and markdown in the document. This 
@@ -144,12 +144,13 @@ B) AI Ethics Bridging Corpus (11 PDFs)
 Then, to increase the agent’s output relevance and precision, I added a Bridging 
 Corpus with 11 contemporary examples of papers using ancient philosophy in AI 
 Ethics. This includes : 
+
 -
 Contemporary AI ethics papers by Floridi (3 papers on algorithmic ethics 
 and unified frameworks), Vallor (3 papers on virtue ethics and technology), 
 Gabriel & Keeling (on value alignment), Karpouzis (AI and Aristotle in 
 education), QinZhu (Confucian robot ethics). 
-5. Worked Examples: Your Assistant in Action 
+# 5. Worked Examples 
 Example 1 — Oracle Mode: AI, Labor Rules and Ethics 
 Request : Synthesize last week’s news on AI Ethics and tell me how the Ancient thinkers 
 would interpret it. --- 
@@ -361,7 +362,7 @@ This iteration did something interesting : it applied Marcus Aurelius’ stoicis
 itself, based on a paper covering LLM resistance to RL training. I thought this was an 
 interesting reminder of the breadth of possibilities of such tool, which could be used to 
 analyze artificial behavior as much as AI ethics per se. 
-6. Summary and Conclusions 
+# 6. Summary and Conclusions 
 The system prompt engineering was vital to this entire agent development, as it 
 handles how each tool gets triggered, when, what each mode entails, as well as 
 the chain of reasoning steps to go from superficial parallels to a meaningful 
