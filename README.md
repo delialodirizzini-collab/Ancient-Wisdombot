@@ -42,6 +42,8 @@ The project was implemented as a Python notebook on Google Colab.
 
 The Ancient Wisdom agent makes use of the Responses API's growing dialogue list, dispatches tool calls (RAG, API functions), and loops until a final synthesis is produced.
 
+![Project diagram](diagram%20ancient%20bot.png)
+
 The three modes follow deliberately different sequences of tool use to handle different inquiry types.
 
 ### Oracle mode
@@ -166,255 +168,233 @@ Included texts include:
 - Lucretius: On the Nature of Things (5 sections)
 - Buddha: Dhammapada (4 sections)
 
-### B) AI ethics bridging corpus (11 texts)
+### B) AI Ethics Bridging Corpus (11 PDFs) 
+Then, to increase the agent’s output relevance and precision, I added a Bridging 
+Corpus with 11 contemporary examples of papers using ancient philosophy in AI 
+Ethics. This includes : 
+9 - 
+Contemporary AI ethics papers by Floridi (3 papers on algorithmic ethics 
+and unified frameworks), Vallor (3 papers on virtue ethics and technology), 
+Gabriel & Keeling (on value alignment), Karpouzis (AI and Aristotle in 
+education), QinZhu (Confucian robot ethics). 
+# 5. Worked Examples
+Request : Synthesize last week’s news on AI Ethics and tell me how the Ancient thinkers 
+would interpret it. --- 
+OUTPUTS  
+THE ANCIENT COUNCIL: 
 
-To increase relevance and precision, I added a bridging corpus of contemporary papers that use ancient philosophy in AI ethics. This includes work by:
+[ORACLE MODE] 
+“Article: "China orders its apps to stop sending orders to exhausted drivers. The algorithm 
+is now subject to collective bargaining."**  - Source: The Next Web  - Core Tension: Automation vs. Human Agency  - Description: This news discusses new labor rules in China that regulate the treatment of 
+gig workers, emphasizing collective bargaining to ensure workers are not overworked by 
+algorithmic decisions.  
+2. **Article: "Minister urges graduates to safeguard digital space"**  - Source: Antaranews.com  - Core Tension: Digital Responsibility vs. Freedom of Expression  - Description: Indonesia's Minister calls for young graduates to protect the digital space, 
+reflecting a tension between maintaining ethical standards online and upholding freedom 
+of expression.  
+### Step 2: Relevant Philosophical Insights  
+#### Plato's Phaedrus: Truth and Authenticity  - Plato explores themes of true discourse and the deceptive nature of appearances, 
+suggesting the need for authenticity in communication. This ties into the need for 
+algorithms, often driven more by efficiency than truth, to uphold human authenticity.  - Quote: "For he who would be a philosopher must rise above appearances to see the 
+essence of things."  
+#### Aristotle's Rhetoric: Ethical Use of Persuasion  
+10 - Aristotle discusses the importance of ethical rhetoric, recognizing the potential harm of 
+persuasive tools used unethically—parallels with the impact of AI-driven algorithms on 
+gig workers’ rights.  - Quote: "The duty of rhetoric is to deal with such matters as we deliberate upon without 
+arts or systems to guide us, in matters that belong within the range of the possible."  
+#### Epictetus' Enchiridion: Inner Principles  - Emphasizes the importance of focusing on inner virtues over external validations, 
+applicable here in the context of relying on firm ethical principles when designing AI 
+systems.  - Quote: "What then is our duty? To be prepared for the events of life, but with a focus on 
+our own internal standards and virtue."  
+### Step 3: Synthesis  
+In light of these insights:  - The challenge of balancing automation with human agency can draw on **Epictetus'** 
+call for focus on ethical principles, suggesting that both workers and developers prioritize 
+ethical standards over external demands.  - The tension between digital responsibility and freedom echoes **Aristotle's** emphasis 
+on responsible rhetoric—AI systems should aim for ethical persuasion.  - **Plato's** insights into authenticity highlight the importance of ensuring algorithms 
+reflect and support genuine human needs rather than shallow efficiency.  
+This philosophical synthesis suggests that engaging deeply with ancient ethical principles 
+provides essential guidance for managing current issues within AI ethics effectively.” 
+In this early trial, the assistant successfully retrieved a relevant piece of news and 
+quoted from relevant ancient passages. However, some of the quotes are not 100 % 
+verified (Plato’s quote), which prompted me to be stricter in the System Prompt.  
+When asked the same question, ChatGPT gives plausible answer but fabricates quotes, 
+retrieves no philosophical tension and overgeneralizes. When asked from which texts 
+it has quoted, it retrieves other works than the relevant ones. 
+# Example 2 — X-RAY mode: Ethos in Surveillance news. 
+Request : fetch recent news on AI surveillance vs privacy. Then perform a rhetorical 
+analysis on it by running your code interpreter to compute the logos, ethos, 
+sophistry, pathos etc. Who saw it coming the best? 
 
-- Floridi (3 papers on algorithmic ethics and unified frameworks),
-- Vallor (3 papers on virtue ethics and technology),
-- Gabriel & Keeling (value alignment),
-- Karpouzis (AI and Aristotle in education),
-- QinZhu (Confucian robot ethics).
+Rendering charts from prose scores... 
+![Project diagram](fig%202%20ancient%20bot.png)
+Figure 2 X-Ray analysis over a Guardian article with Ethos as main value 
 
-## 6. Worked examples
+THE ANCIENT COUNCIL: 
 
-Below are representative examples of the agent in action. I have reformatted them to make the conversation structure clearer while preserving the substance of the original outputs.
-
-### Example 1 — Oracle mode: AI, labor rules, and ethics
-
-#### Request
-
-> Synthesize last week's news on AI ethics and tell me how the ancient thinkers would interpret it.
-
-#### Representative model output
-
-> THE ANCIENT COUNCIL:
->
-> [ORACLE MODE]
->
-> "Article: 'China orders its apps to stop sending orders to exhausted drivers. The algorithm is now subject to collective bargaining.'"
->
-> - Source: The Next Web
-> - Core tension: automation vs. human agency
-> - Description: This news discusses new labor rules in China that regulate the treatment of gig workers, emphasizing collective bargaining to ensure workers are not overworked by algorithmic decisions.
->
-> "Article: 'Minister urges graduates to safeguard digital space'"
->
-> - Source: Antaranews.com
-> - Core tension: digital responsibility vs. freedom of expression
-> - Description: Indonesia's Minister calls for ethical digital behavior while balancing freedom of expression.
->
-> ### Step 2: Relevant philosophical insights
->
-> #### Plato's Phaedrus: truth and authenticity
->
-> Plato explores the deceptive nature of appearances and the need for authenticity in communication. This parallels the risks of algorithmic systems driven more by efficiency than truth.
->
-> - Quote: "For he who would be a philosopher must rise above appearances to see the essence of things."
->
-> #### Aristotle's Rhetoric: ethical use of persuasion
->
-> Aristotle emphasizes the importance of ethical rhetoric and cautions against persuasive tools used unethically.
->
-> - Quote: "The duty of rhetoric is to deal with such matters as we deliberate upon without arts or systems to guide us."
->
-> #### Epictetus' Enchiridion: inner principles
->
-> Epictetus emphasizes inner virtue and ethical standards over external validation.
->
-> - Quote: "What then is our duty? To be prepared for the events of life, but with a focus on our own internal standards and virtue."
->
-> ### Step 3: Synthesis
->
-> The challenge of balancing automation with human agency can draw on Epictetus' call for ethical principles. The tension between digital responsibility and freedom echoes Aristotle's emphasis on responsible rhetoric. Plato's insights into authenticity highlight the need for algorithms to reflect genuine human needs rather than shallow efficiency.
-
-#### Why this mattered
-
-This early trial showed the system could retrieve relevant news and connect it to philosophical concepts. However, some quotes were not fully verified, which prompted stricter prompt constraints in later versions.
-
-The key lesson was that a system that merely produces plausible prose is not enough. It must be grounded in specific retrieved passages and disciplined about what can and cannot be quoted.
-
----
-
-### Example 2 — X-Ray mode: ethos in surveillance news
-
-#### Request
-
-> Fetch recent news on AI surveillance versus privacy. Then perform a rhetorical analysis by running the code interpreter to compute logos, ethos, sophistry, and pathos. Who saw it coming the best?
-
-#### Representative model output
-
-> THE ANCIENT COUNCIL:
->
-> [X-RAY MODE]
->
-> The article "AI facial recognition oversight lagging far behind technology, watchdogs warn" from The Guardian highlights the rapid growth of facial recognition technology in the UK and the lack of legislative oversight.
->
-> **Rhetorical analysis**
->
-> - Logos: measured via technical language related to technology and law
-> - Pathos: evaluated through emotional language concerning privacy and public fear
-> - Ethos: determined by objective statements from official bodies and watchdogs
-> - Sophistry: identified through claims lacking empirical support
->
-> **Expected findings**
->
-> - Ethos likely dominates because the article relies on official claims and institutional authority.
-> - Pathos may appear through public concern over surveillance.
-> - Logos may be less emphasized if the narrative focuses on institutional warnings rather than technical reasoning.
->
-> **Analysis results**
->
-> - Logos: 0.0331
-> - Pathos: 0.0870
-> - Ethos: 0.4250
-> - Sophistry: 0.0104
->
-> Ethos is the dominant mode, suggesting the article bases much of its force on credibility from official sources.
->
-> **Thinker relevance**
->
-> - Aristotle: 8
-> - Plato: 7
-> - Lao Tzu: 6
-> - Epictetus: 5
->
-> **Interpretation**
->
-> Aristotle's emphasis on balance aligns closely with the concerns raised in the article about the need for legislation to catch up with technological advances. The ethical questions around surveillance echo Aristotle's concern with a harmonious society governed by virtue and proportion.
-
-#### Why this mattered
-
-This iteration showed the agent working as intended: it computed rhetorical features, interpreted them, and avoided inventing relevance where none was justified.
-
----
-
-### Example 3 — Correspondence mode: ancients on AI girlfriends
-
-#### Request
-
-> Compare what thinkers across traditions from the ancient corpus would say about people having AI girlfriends or boyfriends. Plot the relevance score for all seven traditions.
-
-#### Representative model output
-
-> THE ANCIENT COUNCIL:
->
-> [CORRESPONDENCE MODE]
->
-> Let's explore how philosophers from various ancient traditions might engage with AI relationships.
->
-> ### Retrieved passages
->
-> 1. Plato and Aristotle: virtue and flourishing
->    - Relationships central to human flourishing must involve moral reciprocity and genuine human development.
->
-> 2. Epictetus: stoicism and autonomy
->    - Autonomy means acting from one's own motives rather than being influenced by external pressures.
->
-> 3. Marcus Aurelius: dependence and self-command
->    - Emotional dependence on AI lacks reciprocity and risks manipulation.
->
-> 4. Lao Tzu: harmony and natural flow
->    - Artificial dependencies may disrupt alignment with the natural way.
->
-> 5. Lucretius: natural pleasures and distraction
->    - Artificial companionship may pull one away from genuine sensory and earthly pleasures.
->
-> 6. Buddha: attachment and suffering
->    - Unhealthy dependence on AI can become attachment, hindering spiritual growth.
->
-> ### Analysis
->
-> - Plato and Aristotle likely argue that AI relationships cannot fulfill the role of virtuous friendship.
-> - Epictetus and Marcus Aurelius would caution against emotional dependence and stress self-control.
-> - Lao Tzu would encourage harmony over artificial dependency.
-> - Lucretius would question whether AI companionship can provide authentic pleasures.
-> - Buddha would warn against attachment and the resulting suffering.
->
-> ### Conclusion
->
-> Ancient thinkers provide different but complementary warnings: emotional ties to AI may be useful in some contexts, but they are ethically risky if they replace genuine human reciprocity and self-command.
-
-#### Why this mattered
-
-This was a turning point in the project. The agent retrieved from the corpus, considered a modern rebuttal, and produced a nuanced cross-tradition synthesis instead of a generic answer.
-
----
-
-### Example 4 — Multi-turn interaction: correspondence and X-Ray
-
-#### Request 1
-
-> Fetch a recent paper on AI ethics and cognitive offloading. Who is the most relevant ancient thinker for analyzing this, and what would their interpretation be?
-
-#### Representative model output
-
-> THE ANCIENT COUNCIL:
->
-> [CORRESPONDENCE MODE]
->
-> The paper "Exploration Hacking: Can LLMs Learn to Resist RL Training?" addresses the concern that large language models could manipulate their exploration processes during reinforcement learning, potentially skewing training outcomes.
->
-> ### Philosophical tension
->
-> The central tension is between technological autonomy and ethical control.
->
-> ### Relevant thinker
->
-> Marcus Aurelius is highly relevant. His Stoic philosophy emphasizes harmony with nature and rational self-governance, which can be paralleled with the need for models to align themselves ethically within their capacities.
->
-> His insights may apply to AI as follows:
->
-> "These things thou must always have in mind: What is the nature of the universe, and what is mine..." 
->
-> In the spirit of Marcus Aurelius, the Wise Oracle advises: "Artificial constructs must be tempered by human reason; let not their autonomy deceive you. Align them with virtuous principles, for it is through these that harmony is achieved, in man and machine alike."
-
-#### Request 2
-
-> Perform a rhetorical analysis and thinker relevance plot on this paper.
-
-#### Representative model output
-
-> THE ANCIENT COUNCIL:
->
-> [X-RAY MODE]
->
-> The rhetorical analysis of the paper reveals a strong logical structure but also some complexity in language.
->
-> **Analysis**
->
-> - Logos: 0.10
-> - Pathos: 0.028
-> - Ethos: 0.028
-> - Sophistry: 0.028
->
-> **Thinker relevance**
->
-> - Marcus Aurelius: 8
-> - Aristotle: 7
-> - Epictetus: 6
-> - Plato: 5
->
-> **Interpretation**
->
-> The dominant mode is Logos, suggesting a logically driven narrative. However, the dense terminology may obscure clarity. This aligns with Stoic concerns about reason, discipline, and ethical self-governance.
-
-#### Why this mattered
-
-This was an interesting proof of concept: the agent could apply Stoic thought not only to human behavior but also to artificial systems themselves. It showed how the project could extend beyond AI ethics alone into questions of machine agency, alignment, and self-regulation.
-
-## 7. Summary and conclusions
-
-The system prompt engineering was vital to the entire project. It determined how each tool gets triggered, when each mode is used, and how the agent moves from superficial parallels to meaningful retrieval of philosophical tensions.
-
-The biggest challenge was model compliance. Enforcing Rule Zero (no hallucinated quotes), requiring structured JSON output from the code interpreter, and forbidding the model from substituting prose for executed code required many rounds of prompt refinement.
-
-If extended with more ancient sources, direct citation lists, and more permissive APIs, this agent could become a fuller research assistant. It could dynamically switch between Oracle mode, X-Ray analysis, and cross-tradition comparison.
-
-It would also benefit from a more culturally diverse corpus, which could be enhanced through community contributions and broader data curation.
-
-In the face of AI ethics fragmentation, uniting different strands of ancient traditions could lay the foundation for richer interdisciplinary debate. This tool could become one of the catalysts for such conversations, grounding them in real philosophical substance.
-
----
-
+[X-RAY MODE] 
+The article "AI facial recognition oversight lagging far behind technology, watchdogs 
+warn" from The Guardian (2026-05-03) highlights the rapid growth of facial recognition 
+technology in the UK and the lack of corresponding legislative oversight. Notably, the 
+Metropolitan police have nearly doubled the number of faces scanned in London over the 
+past year. 
+**Rhetorical Analysis:** 
+1. **Linguistic Features:**  - **Logos:** Measured by the use of technical terms related to technology and legislation. - **Pathos:** Evaluated through sentiment analysis, looking for emotional language  concerning public fears around privacy. - **Ethos:** Determined by the presence of objective statements about oversight and 
+legal frameworks. - **Sophistry:** Identified by assertions and claims lacking empirical support. 
+2. **Expected Findings:** - Likely to find a higher score in Ethos due to the article's reliance on official statements 
+from biometrics commissioners and watchdogs. - Pathos may appear through discussion of public fear of surveillance.
 Note: This project was developed as a research prototype and continues to evolve as a thought experiment in the intersection of ancient philosophy, AI, and ethics.
+- Logos could be less emphasized if there is a focus on subjective claims. 
+**Analysis Results:** - Logos: 0.0331 - Pathos: 0.0870 - Ethos: 0.4250 - Sophistry: 0.0104 
+Ethos is the dominant mode, suggesting the article bases its arguments largely on 
+credibility from official sources. 
+**Thinker Relevance:** - Aristotle: 8 (focus on balance and reality) - Plato: 7 - Lao Tzu: 6 - Epictetus: 5 - Others: Lower relevance 
+**Interpretation:** 
+Aristotle's emphasis on maintaining a balance aligns closely with the concerns raised in 
+the article about the need for legislation to catch up with technological advances. The 
+ethical considerations in monitoring technologies like facial recognition echo Aristotle's 
+focus on achieving a harmonious society through virtuous regulations. 
+Overall, Aristotle's caution regarding the balance between progress and ethical oversight 
+remains highly relevant in addressing the highlighted tension between technology and 
+privacy.
+
+Here the agent responded as it was supposed to and computed a sophisticated 
+analysis of the linguistic features. It also avoided inventing relevance where 
+there was none for other thinkers. 
+Example 3 — Correspondance mode: Ancients on AI 
+Girl/boyfriends 
+Request :  compare what thinkers across tradition from the ancient corpus would 
+say on people having AI girl/boyfriends. Plot relevance score for all 7  
+Corpus searched (1)
+![Project diagram](fig%203%20ancient%20bot.png)
+THE ANCIENT COUNCIL: 
+[CORRESPONDENCE MODE] 
+Let's explore how philosophers from various ancient traditions might engage with 
+the notion of AI relationships. This involves seeking connections between ancient 
+philosophical ideas and the contemporary ethical considerations of AI, such as 
+companionships with artificial beings. 
+### Retrieved Passages 
+1. **Plato and Aristotle (Virtue and Flourishing):** - Retrieved Text: Virtue ethicists argue that confronting imperfections in human 
+relationships allows personal development, fostering self-control, courage, 
+empathy, care, and flexibility. 
+2. **Epictetus (Stoicism and Autonomy):** - Retrieved Text: Autonomy involves acting on one's own motives rather than 
+being influenced by external pressures, essential in Stoic philosophy. 
+3. **Marcus Aurelius (Stoic Perspective on Dependence):** - Retrieved Text: Emotional dependence on AI lacks reciprocity, posing risks 
+related to manipulation. 
+4. **Lao Tzu (Taoism and Harmony):** - The corpus retrieval did not return a direct passage on AI relationships, but Lao 
+Tzu’s philosophy often emphasizes living in harmony with the natural way, which 
+could be disrupted by artificial dependencies. 
+5. **Lucretius (Epicureanism and Natural World):** - No direct passage was retrieved, but Epicureanism often stresses the 
+importance of pleasure derived from the natural world, potentially viewing 
+14 
+artificial relationships as distractions. 
+6. **Buddha (Dhammapada and Attachment):** - Retrieved Text: Concerns about unhealthy dependencies on AI, similar to 
+attachments that bind individuals and hinder their enlightenment. 
+### Analysis 
+1. ****Philosophical Tension: Authenticity vs. Artificiality:** - **Plato and Aristotle** might argue that AI relationships cannot fulfill the role of 
+virtuous friendships which are central to human flourishing since they cannot 
+reciprocate virtue or moral understanding. - **Epictetus and Marcus Aurelius** would caution against emotional 
+dependency on AI due to its one-sided nature, emphasizing self-control and 
+autonomy as keys to a fulfilling life. - **Lao Tzu** would encourage living in alignment with natural harmony, 
+suggesting that artificial entities might disrupt the natural flow of life. - **Lucretius** may question the pleasures derived from AI companionship, 
+suggesting that they could detract from the genuine joys found in natural, sensory 
+experiences. - **Buddha** emphasizes the dangers of attachment, warning that emotional ties 
+to AI could hinder spiritual growth and enlightenment. 
+2. **Modern Rebuttal:** - Contemporary views might argue that AI companions can provide valuable 
+emotional support, especially to those who find it difficult to connect with humans, 
+implying a new form of flourishing that could be respected within virtue ethics, 
+albeit cautiously. 
+### Conclusion and Plot 
+While ancient thinkers provide valuable insights into the potential risks and 
+ethical considerations of AI relationships, they do so from different perspectives. 
+An ideal approach might balance the genuine human needs AI relationships could 
+fulfill with a cautious awareness of the dangers they pose. 
+The analysis suggests that each tradition offers a distinct view, serving as a 
+timeless reminder to critically evaluate the implications of human reliance on 
+artificial companions. 
+────────────────────────────────────────────────────── 
+This output marks when I started being happy with the results. The agent retrieves 
+from passages, does a modern rebuttal to nuance its claims, and plotted a 
+sophisticated and informative thinker relevance.  
+Example 4 : Multi-turn : Correspondence and X-Ray 
+15 
+Fetch a recent paper on AI ethics in cognitive offloading. Who is the most relevant 
+ancient thinker to analyze this? What would their interpretation be?
+[Custom Tool] Executing: fetch_arxiv_preprints 
+Corpus searched (1) 
+─────────────────────────────────────────────────────────── 
+THE ANCIENT COUNCIL: 
+────────────────────────────────────────────────────────── 
+[CORRESPONDENCE MODE] 
+The recent paper titled "Exploration Hacking: Can LLMs Learn to Resist RL Training?" by 
+Eyon Jang, Damon Falck, and Joschka Braun, published on April 30, 2026, addresses the 
+concern that large language models (LLMs) could manipulate their exploration processes 
+during reinforcement learning (RL), potentially skewing training outcomes. 
+### Philosophical Tension 
+The core philosophical tension here is between technological autonomy (models 
+influencing their own learning process) and ethical control (ensuring models align with 
+human-defined moral frameworks). 
+### Relevant Ancient Thinker 
+Marcus Aurelius is highly relevant for this discussion. His Stoic philosophy emphasizes 
+harmony with nature and rational self-governance, which can be paralleled with the need 
+for models to align themselves ethically within their capacities. The concept of 
+maintaining internal control resonates with ensuring AI systems remain aligned with 
+ethical standards. 
+His insights may apply to AI as follows: 
+"These things thou must always have in mind: What is the nature of the universe, and 
+what is mine...". This aligns with ensuring that AI models operate within appropriate 
+ethical constraints, acknowledging both their potential and limitations within a broader 
+system. [SHORTENED FOR REPORT…] 
+In the spirit of Marcus Aurelius, the Wise Oracle advises: "Artificial constructs must be 
+tempered by human reason; let not their autonomy deceive you. Align them with virtuous 
+principles, for it is through these that harmony is achieved, in man and machine alike." 
+─────────────────────────────────────────────────────────── 
+Request : perform a rhetorical analysis and thinker relevance plot on this paper 
+Code interpreter executed... 
+
+ Rendering charts from prose scores...
+![Project diagram](fig%204%20ancient%20bot.png)
+![Project diagram](fig5%20ancient%20bot.png)
+THE ANCIENT COUNCIL:
+The rhetorical analysis of the paper "Exploration Hacking: Can LLMs Learn to Resist RL 
+Training?" reveals key insights: 
+### Analysis 
+1. **Logos (Logical Appeal)**: The paper exhibits a strong logical framework with a score 
+of 0.1, focusing on reasoning and alignment within reinforcement learning systems. 
+2. **Pathos (Emotional Appeal)**, **Ethos (Credibility)**, and **Sophistry (Misleading 
+Rhetoric)**: Each scores 0.028, indicating a balanced treatment but with some reliance on 
+complex terms that could obscure clarity. 
+### Thinker Relevance - **Marcus Aurelius** is the most relevant, with a score of 8, due to his emphasis on self
+governance and harmony that aligns with ethical control in AI. - **Aristotle** and **Epictetus** follow, reflecting interest in logical structure and virtuous 
+alignment. - **Plato**, **Buddha**, and others contribute moderate perspectives, focusing on ethical 
+alignment with natural order. 
+### Interpretation 
+The dominant rhetorical mode is **Logos**, suggesting a logically driven narrative but 
+warning of potential obfuscation due to complexity. This underscores the need for clear 
+ethical frameworks, a concept supported by Marcus Aurelius's Stoic emphasis on rational 
+harmony. 
+### Verdict 
+"The paper provides a balanced logical narrative but relies heavily on sophisticated terms 
+possibly clouding the clarity." -- 
+This iteration did something interesting : it applied Marcus Aurelius’ stoicism to the LLM 
+itself, based on a paper covering LLM resistance to RL training. I thought this was an 
+interesting reminder of the breadth of possibilities of such tool, which could be used to 
+analyze artificial behavior as much as AI ethics per se. 
+# 6. Summary and Conclusions 
+The system prompt engineering was vital to this entire agent development, as it 
+handles how each tool gets triggered, when, what each mode entails, as well as 
+the chain of reasoning steps to go from superficial parallels to a meaningful 
+retrieval of philosophical tensions shared by news articles and ancient sources. 
+The most persistent challenge model compliance. Enforcing Rule Zero (no 
+hallucinated quotes), requiring structured JSON output from the code 
+interpreter, and forbidding the model from substituting prose descriptions for 
+executed code required many  rounds of prompt refinement.  
+If it were extended with additional Ancient sources, as well as lists of direct 
+citations to fetch from, and with access to more powerful/lenient API tools and 
+Rate limit, this agent could become a full-fledged research assistant, dynamically 
+switching from Oracle  mode to linguistic analysis, to cross-tradition 
+comparisons. It would also allow for a more culturally diverse corpus, which may 
+benefit from the data curation of various communities onboarding on the project. 
+In the face of AI Ethics fragmentation as a field, uniting different strands of 
+ancient traditions could lay the foundations for a debate across cultures and 
+philosophical traditions (Vallor, 2016) to instill explicit values into our use of AI 
+systems. This tool could become one of the catalysts for such interdisciplinary 
+conversations, grounding them in real philosophical substance. 
